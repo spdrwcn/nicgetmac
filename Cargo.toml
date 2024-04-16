@@ -1,0 +1,17 @@
+[package]
+name = "nicgetmac"
+version = "1.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mac_address = "1.1.5"
+simple_redis = "0.6.3"
+clap = "2.33"
+[profile.release]
+strip = true 
+opt-level = 3
+lto = true
+[target.x86_64-pc-windows-gun]
+rustflags = ["-C", "target-feature=+crt-static"]
